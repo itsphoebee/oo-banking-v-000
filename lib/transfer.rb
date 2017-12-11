@@ -28,8 +28,8 @@ attr_accessor :sender, :receiver, :status, :amount
 
   def reverse_transfer
     if self.status == "complete"
-      @sender.balance = @sender.balance + @amount
-      @receiver.balance = @receiver.balance - @amount
+      @sender.balance += @amount
+      @receiver.balance -= @amount
       "Transaction rejected. Please check your account balance."
       @status = "reversed"
     end
